@@ -49,3 +49,10 @@ services:
       CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: localhost:22181
     extra_hosts:
       - "moby:127.0.0.1"
+  kafka-manager:
+    image: sheepkiller/kafka-manager:latest
+    network_mode: host
+    environment:
+      ZK_HOSTS: localhost:22181
+      APPLICATION_SECRET: letmein
+      KM_ARGS: -Djava.net.preferIPv4Stack=true
