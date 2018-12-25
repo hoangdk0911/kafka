@@ -3,8 +3,7 @@ services:
 
   kafka-4:
     image: confluentinc/cp-enterprise-kafka:latest
-    ports:
-      - "19082:19082"
+    network_mode: host
     environment:
       KAFKA_BROKER_ID: 4
       KAFKA_BROKER_RACK: rack-b
@@ -20,8 +19,7 @@ services:
 
   kafka-5:
     image: confluentinc/cp-enterprise-kafka:latest
-    ports:
-      - "29082:29082"
+    network_mode: host
     environment:
       KAFKA_BROKER_ID: 5
       KAFKA_BROKER_RACK: rack-b
@@ -37,8 +35,7 @@ services:
 
   kafka-6:
     image: confluentinc/cp-enterprise-kafka:latest
-    ports:
-      - "39082:39082"
+    network_mode: host
     environment:
       KAFKA_BROKER_ID: 6
       KAFKA_BROKER_RACK: rack-b
