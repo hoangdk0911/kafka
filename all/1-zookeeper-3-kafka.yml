@@ -42,7 +42,6 @@ services:
     network_mode: host
     environment:
       KAFKA_BROKER_ID: 3
-      KAFKA_BROKER_RACK: rack-a
       KAFKA_ZOOKEEPER_CONNECT: localhost:22181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://66.42.61.89:39092
       KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
