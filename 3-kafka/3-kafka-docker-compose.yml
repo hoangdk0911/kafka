@@ -6,14 +6,12 @@ services:
     network_mode: host
     environment:
       KAFKA_BROKER_ID: 4
-      KAFKA_BROKER_RACK: rack-b
       KAFKA_ZOOKEEPER_CONNECT: 66.42.61.89:22181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://149.28.143.127:19082
       KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
       CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: localhost:19082
       CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: 66.42.61.89:22181
-    extra_hosts:
-      - "moby:127.0.0.1"
+      JMX_PORT: 19083
     volumes:
       - ./kafka4/data:/var/lib/kafka/data
 
@@ -22,14 +20,12 @@ services:
     network_mode: host
     environment:
       KAFKA_BROKER_ID: 5
-      KAFKA_BROKER_RACK: rack-b
       KAFKA_ZOOKEEPER_CONNECT: 66.42.61.89:22181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://149.28.143.127:29082
       KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
       CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: localhost:29082
       CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: 66.42.61.89:22181
-    extra_hosts:
-      - "moby:127.0.0.1"
+      JMX_PORT: 29083
     volumes:
       - ./kafka5/data:/var/lib/kafka/data
 
@@ -38,13 +34,11 @@ services:
     network_mode: host
     environment:
       KAFKA_BROKER_ID: 6
-      KAFKA_BROKER_RACK: rack-b
       KAFKA_ZOOKEEPER_CONNECT: 66.42.61.89:22181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://149.28.143.127:39082
       KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
       CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: localhost:39082
       CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: 66.42.61.89:22181
-    extra_hosts:
-      - "moby:127.0.0.1"
+      JMX_PORT: 39083
     volumes:
       - ./kafka6/data:/var/lib/kafka/data   
