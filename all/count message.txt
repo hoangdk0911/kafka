@@ -1,0 +1,2 @@
+docker run --net=host --rm confluentinc/cp-kafka kafka-run-class kafka.tools.GetOffsetShell --broker-list localhost:19092 --topic smm-comment --time -1 --offsets 1 | awk -F ':' '{sum += $3} END {print sum}'
+

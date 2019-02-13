@@ -1,0 +1,94 @@
+version: '2'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    network_mode: host
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 22181
+    volumes:
+      - ./zoo1/data:/var/lib/zookeeper/data
+      - ./zoo1/log:/var/lib/zookeeper/log
+
+  kafka-1:
+    image: confluentinc/cp-enterprise-kafka:latest
+    network_mode: host
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: localhost:22181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://45.77.240.74:19092
+      KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
+      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: localhost:19092
+      CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: localhost:22181
+      JMX_PORT: 19093
+    volumes:
+      - ./kafka1/data:/var/lib/kafka/data
+
+  kafka-2:
+    image: confluentinc/cp-enterprise-kafka:latest
+    network_mode: host
+    environment:
+      KAFKA_BROKER_ID: 2
+      KAFKA_ZOOKEEPER_CONNECT: localhost:22181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://45.77.240.74:29092
+      KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
+      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: localhost:29092
+      CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: localhost:22181
+      JMX_PORT: 29093
+    volumes:
+      - ./kafka2/data:/var/lib/kafka/data
+
+  kafka-3:
+    image: confluentinc/cp-enterprise-kafka:latest
+    network_mode: host
+    environment:
+      KAFKA_BROKER_ID: 3
+      KAFKA_ZOOKEEPER_CONNECT: localhost:22181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://45.77.240.74:39092
+      KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
+      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: localhost:39092
+      CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: localhost:22181
+      JMX_PORT: 39093
+    volumes:
+      - ./kafka3/data:/var/lib/kafka/data   
+
+ kafka-4:
+    image: confluentinc/cp-enterprise-kafka:latest
+    network_mode: host
+    environment:
+      KAFKA_BROKER_ID: 4
+      KAFKA_ZOOKEEPER_CONNECT: localhost:22181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://45.77.240.74:19082
+      KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
+      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: localhost:19082
+      CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: localhost:22181
+      JMX_PORT: 19083
+    volumes:
+      - ./kafka1/data:/var/lib/kafka/data
+
+  kafka-2:
+    image: confluentinc/cp-enterprise-kafka:latest
+    network_mode: host
+    environment:
+      KAFKA_BROKER_ID: 5
+      KAFKA_ZOOKEEPER_CONNECT: localhost:22181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://45.77.240.74:29082
+      KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
+      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: localhost:29082
+      CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: localhost:22181
+      JMX_PORT: 29083
+    volumes:
+      - ./kafka2/data:/var/lib/kafka/data
+
+  kafka-3:
+    image: confluentinc/cp-enterprise-kafka:latest
+    network_mode: host
+    environment:
+      KAFKA_BROKER_ID: 6
+      KAFKA_ZOOKEEPER_CONNECT: localhost:22181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://45.77.240.74:39082
+      KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
+      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: localhost:39082
+      CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: localhost:22181
+      JMX_PORT: 39083
+    volumes:
+      - ./kafka3/data:/var/lib/kafka/data         

@@ -1,0 +1,1 @@
+docker run --net=host --rm confluentinc/cp-enterprise-kafka bash -c "confluent-rebalancer execute --zookeeper localhost:22181 --metrics-bootstrap-server localhost:19092 --throttle 100000000 --force --verbose"
