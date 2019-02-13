@@ -1,0 +1,9 @@
+version: '2'
+services:  
+  kafka-manager:
+    image: sheepkiller/kafka-manager:latest
+    network_mode: host
+    environment:
+      ZK_HOSTS: localhost:22181
+      APPLICATION_SECRET: letmein
+      KM_ARGS: -Djava.net.preferIPv4Stack=true
