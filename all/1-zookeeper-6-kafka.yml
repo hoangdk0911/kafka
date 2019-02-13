@@ -51,7 +51,7 @@ services:
     volumes:
       - ./kafka3/data:/var/lib/kafka/data   
 
- kafka-4:
+  kafka-4:
     image: confluentinc/cp-enterprise-kafka:latest
     network_mode: host
     environment:
